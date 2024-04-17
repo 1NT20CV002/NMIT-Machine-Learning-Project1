@@ -20,7 +20,7 @@ def prediction (Buying,Maint,Doors,Persons,Lug_boot,Safty):
     safty=2
   elif Safty=='low':
     safty=3
-  df = pd.Dataframe([Buying, Maint, Doors, Persons, Lug_boot, safty],columns=['Buying','Maint','Doors','Persons','Lug_boot','safty'])
+  df = pd.DataFrame([Buying, Maint, Doors, Persons, Lug_boot, safty],columns=['Buying','Maint','Doors','Persons','Lug_boot','safty'])
   result =model.predict([[Buying, Maint, Doors, Persons, Lug_boot, safty]])
   return result
 

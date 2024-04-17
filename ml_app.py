@@ -28,7 +28,7 @@ def predict (buying,maint,doors,persons,lug_boot,safty):
 st.title('Car Evaluation Classification')
 st.image("""https://media.zigcdn.com/media/model/2020/Jun/aspire_360x240.jpg""")
 st.header('Enter the Information of the Car:')
-St.text("vhigh=1 high=2 mid=3 low=4")
+st.text("vhigh=1 high=2 mid=3 low=4")
 Buying = st.number_input('buying:', min_value=1, max_value=4, value=1)
 st.text("vhigh = 1 high = 2 med 3 low = 4")
 Maint = st.number_input('maint:', min_value=1, max_value=4, value=1)

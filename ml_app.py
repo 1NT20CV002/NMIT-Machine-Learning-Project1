@@ -12,7 +12,6 @@ model = DecisionTreeClassifier(max_depth=20, min_samples_leaf=5, random_state=0)
 model = joblib.load('finalized_model.joblib')
 
 @st.cache
-
 def prediction (Buying,Maint,Doors,Persons,Lug_boot,Safty):
   if Safty=='med':
     safty=1

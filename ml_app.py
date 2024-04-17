@@ -12,18 +12,18 @@ model = DecisionTreeClassifier(max_depth=20, min_samples_leaf=5, random_state=0)
 model = joblib.load('finalized_model.joblib')
 
 @st.cache
-def prediction (Buying,Maint,Doors,Persons,Lug_boot,Safty):
-  if Safty=='med':
-    safty=1
-  elif Safty=='high':
-    safty=2
-  elif Safty=='low':
-    safty=3
-  df = pd.DataFrame([Buying, Maint, Doors, Persons, Lug_boot, safty],columns=['Buying','Maint','Doors','Persons','Lug_boot','safty'])
-  st.text(Buying, Maint, Doors, Persons, Lug_boot, safty)
-  value = np.array([Buying, Maint, Doors, Persons, Lug_boot, safty])
-  result =model.predict(value)
+def prediction(Buying,Maint,Doors,Persons,Lug_boots,Safety):
+  if Safety == 'med':
+    safety = 1
+  elif Safety == 'high':
+    safety = 2
+  elif Safety == 'low':
+    safety = 3
+  df = pd.DataFrame([[Buying,Maint,Doors,Persons,Lug_boots,safety]],
+                    columns=['Buying','Maint','Doors','Persons','Lug_boots','safety'])
+  result=model.predict([[Buying,Maint,Doors,Persons,Lug_boots,safety]])
   return result
+
 
 st.title('Car Evaluation Classification')
 st.image("""https://media.zigcdn.com/media/model/2020/Jun/aspire_360x240.jpg""")

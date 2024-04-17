@@ -21,7 +21,8 @@ def prediction (Buying,Maint,Doors,Persons,Lug_boot,Safty):
     safty=3
   df = pd.DataFrame([Buying, Maint, Doors, Persons, Lug_boot, safty],columns=['Buying','Maint','Doors','Persons','Lug_boot','safty'])
   st.text(Buying, Maint, Doors, Persons, Lug_boot, safty)
-  result =model.predict([Buying, Maint, Doors, Persons, Lug_boot, safty])
+  value = np.array([Buying, Maint, Doors, Persons, Lug_boot, safty])
+  result =model.predict(value)
   return result
 
 st.title('Car Evaluation Classification')

@@ -13,16 +13,16 @@ model = joblib.load('finalized_model.joblib')
 
 @st.cache
 
-def predict (Buying,Maint,Doors,Persons,Lug_boot,safty):
-  if safty=='med':
+def prediction (Buying,Maint,Doors,Persons,Lug_boot,Safty):
+  if Safty=='med':
     safty=1
-  elif safty=='high':
+  elif Safty=='high':
     safty=2
-  elif safty=='low':
+  elif Safty=='low':
     safty=3
   df = pd.Dataframe([Buying, Maint, Doors, Persons, Lug_boot, safty],columns=['Buying','Maint','Doors','Persons','Lug_boot','safty'])
-  prediction =model.predict([[Buying, Maint, Doors, Persons, Lug_boot, safty]])
-  return prediction
+  result =model.predict([[Buying, Maint, Doors, Persons, Lug_boot, safty]])
+  return result
 
 st.title('Car Evaluation Classification')
 st.image("""https://media.zigcdn.com/media/model/2020/Jun/aspire_360x240.jpg""")
@@ -40,7 +40,7 @@ Lug_boot = st.number_input('lug_boot:', min_value=1, max_value=3, value=1)
 Safty = st.radio('safty:', ('med', 'high', 'low'))
 
 if st.button('Submit_Car_Infos'):
-  cal_eval = predict(Buying, Maint, Doors, Persons, Lug_boot, Safty)
+  cal_eval = prediction(Buying, Maint, Doors, Persons, Lug_boot, Safty)
   st.sucess(f,'The Evaluation of Car: {cal_eval[0]}')
 
 

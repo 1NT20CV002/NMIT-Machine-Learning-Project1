@@ -38,7 +38,7 @@ st.text("2-persons = 1 4-persons = 2 more = 3 ")
 Persons = st.number_input('persons:', min_value=1, max_value=3, value=1)
 st.text("small 1 med 2 big = 3")
 Lug_boot = st.number_input('lug_boot:', min_value=1, max_value=3, value=1)
-Safty st.radio('safty:', ('med', 'high', 'low'))
+Safty = st.radio('safty:', ('med', 'high', 'low'))
 
 if st.button('Submit_Car_Infos'):
   cal_eval = predict(Buying, Maint, Doors, Persons, Lug_boot, safty)

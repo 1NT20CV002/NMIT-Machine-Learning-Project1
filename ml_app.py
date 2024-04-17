@@ -20,9 +20,8 @@ def predict (buying,maint,doors,persons,lug_boot,safty):
     safty=2
   elif safty=='low':
     safty=3
-  df = pd.Dataframe([Buying, Maint, Doors, Persons, Lug_boot, safty])
-  columns=(['buying','maint','doors','persons','lug_boot','safty'])
-  prediction =model.predict([Buying, Maint, Doors, Persons, Lug_boot, safty])
+  df = pd.Dataframe([Buying, Maint, Doors, Persons, Lug_boot, safty],columns=(['buying','maint','doors','persons','lug_boot','safty'])
+  prediction =model.predict([[Buying, Maint, Doors, Persons, Lug_boot, safty]])
   return prediction
 
 st.title('Car Evaluation Classification')
@@ -41,7 +40,7 @@ Lug_boot = st.number_input('lug_boot:', min_value=1, max_value=3, value=1)
 Safty = st.radio('safty:', ('med', 'high', 'low'))
 
 if st.button('Submit_Car_Infos'):
-  cal_eval = predict(Buying, Maint, Doors, Persons, Lug_boot, safty)
+  cal_eval = predict(Buying, Maint, Doors, Persons, Lug_boot, Safty)
   st.sucess(f,'The Evaluation of Car: {cal_eval[0]}')
 
 

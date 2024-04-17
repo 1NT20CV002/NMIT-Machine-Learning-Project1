@@ -42,7 +42,7 @@ Safty = st.radio('safty:', ('med', 'high', 'low'))
 
 if st.button('Submit_Car_Infos'):
   cal_eval = prediction(Buying, Maint, Doors, Persons, Lug_boot, Safty)
-  st.sucess(f,'The Evaluation of Car: {cal_eval[0]}')
+  st.success(f'The Evaluation of Car : {cal_eval[0]}')
 
 
 
